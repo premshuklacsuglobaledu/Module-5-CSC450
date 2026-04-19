@@ -1,0 +1,42 @@
+START
+
+FUNCTION reverseFile(inputFile, outputFile)
+    OPEN inputFile for reading
+    OPEN outputFile for writing
+
+    IF either file fails to open
+        PRINT error message
+        RETURN
+    ENDIF
+
+    READ all characters from inputFile into a string called content
+
+    REVERSE the content string
+
+    WRITE content into outputFile
+
+    CLOSE both files
+END FUNCTION
+
+
+MAIN PROGRAM
+    OPEN "CSC450_CT5_mod5.txt" in append mode
+
+    IF file fails to open
+        PRINT error message
+        EXIT program
+    ENDIF
+
+    PROMPT user to enter text
+    STORE input in userInput
+
+    WRITE userInput to file
+    CLOSE file
+
+    CALL reverseFile with:
+        input = "CSC450_CT5_mod5.txt"
+        output = "CSC450-mod5-reverse.txt"
+
+    PRINT success message
+
+END
